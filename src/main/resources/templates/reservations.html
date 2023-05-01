@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Бронювання</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <a href="/admin/restaurants">Ресторани</a>
+    <a href="/admin/reservations">Бронювання</a>
+    <h1>Бронювання</h1>
+    <table class="admin__table">
+      <thead class="admin__subtitle">
+        <tr>
+          <th class="admin__description">ID бронювання</th>
+          <th class="admin__description">Імʼя</th>
+          <th class="admin__description">Телефон</th>
+          <th class="admin__description">Кількість відвідувачів</th>
+          <th class="admin__description">Дата</th>
+          <th class="admin__description">Ресторан</th>
+        </tr>
+      </thead>
+      <tbody>
+        <th:block th:each="reservation : ${reservations}">
+          <tr>
+            <td class="admin__description" th:text="${reservation.id}"></td>
+            <td class="admin__description" th:text="${reservation.name}"></td>
+            <td class="admin__description" th:text="${reservation.phone}"></td>
+            <td class="admin__description" th:text="${reservation.guests}"></td>
+            <td class="admin__description" th:text="${#dates.format(reservation.reservationDate, 'dd-MM-yyyy')}"></td>
+            <td class="admin__description" th:text="${restaurantsMap[reservation.restaurantId]}"></td>
+          </tr>
+        </th:block>
+      </tbody>
+    </table>
+  </body>
+</html>

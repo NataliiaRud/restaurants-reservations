@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Перелік Ресторанів</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <a href="/admin/restaurants">Ресторани</a>
+    <a href="/admin/reservations">Бронювання</a>
+    <h1>Restaurants tables</h1>
+    <table class="admin__table">
+      <thead class="admin__subtitle">
+        <tr>
+          <th class="admin__description">ID</th>
+          <th class="admin__description">Назва</th>
+          <th class="admin__description">Адреса</th>
+          <th class="admin__description">Редагувати</th>
+          <th class="admin__description">Видалити</th>
+        </tr>
+      </thead>
+      <tbody>
+      <th:block th:each="restaurant : ${restaurants}">
+        <tr>
+          <td class="admin__description" th:text="${restaurant.id}"></td>
+          <td class="admin__description" th:text="${restaurant.name}"></td>
+          <td class="admin__description" th:text="${restaurant.address}"></td>
+          <td class="admin__description"><a th:href="@{'/admin/restaurant-edit?id=' + ${restaurant.id}}">Редагувати</a></td>
+          <td class="admin__description"><a th:href="@{'/admin/restaurant-edit?id=' + ${restaurant.id} + '&action=delete'}">Видалити</a></td>
+        </tr>
+      </th:block>
+      </tbody>
+    </table>
+    <a href="/admin/restaurant-edit?id=0">Create</a>
+  </body>
+</html>

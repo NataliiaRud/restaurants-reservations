@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Увійти в систему</title>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap
+"
+            rel="stylesheet" />
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css
+"
+            integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<div class="login-container"><div th:if="${param.error}" style="color: red" class="login-title">
+    Імʼя користувача або пароль не зареєстровано в системі.
+</div>
+    <form th:action="@{/login}" method="post" class="login-form">
+        <div class="login-data">
+            <label >
+                Імʼя користувача: <input type="text" name="username" />
+            </label>
+        </div>
+        <div class="login-data login-name">
+            <label>
+                Пароль: <input type="password" name="password" />
+            </label>
+        </div>
+        <div class="login-btn">
+            <input type="submit" value="Увійти в систему" />
+        </div>
+</div>
+
+</form>
+</body>
+</html>

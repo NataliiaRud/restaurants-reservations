@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIMIHO</title>
+    <!-- favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="/images/favicon.ico" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header_container container">
+        <nav class="header_navigation">
+          <a href="/" class="header-logo link">Restaurants-reservations</a>
+          <div class="header-nav-wrap">
+            <ul class="header-list list">
+              <li class="header-list-item">
+                <a href="/restaurant" class="rest-header-link link">Ресторан</a>
+              </li>
+              <li class="header-list-item header-phone-wrap">
+                <a href="tel: 0955559533" class="link"
+                  ><svg class="header-icon-phone" width="24px" height="24px">
+                    <use href="/images/icons.svg#icon-phone"></use></svg
+                ></a>
+                <a
+                  href="tel:0955559533"
+                  class="phone-num-link rest-phone-num link">095 555 95 33</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="main-hero container">
+        <h1 class="main-hero__title animate__animated animate__fadeIn">
+          MIMIHO
+        </h1>
+        <h2 class="main-hero__undertitile">Мережа ресторанів</h2>
+        <p class="main-hero__text">смак життя 24/7</p>
+        <div class="tablet-wrap"></div>
+
+        <ul class="main-hero__list list">
+          <li class="main-hero__item">
+            <a
+              class="main-hero__link"
+              href="#"
+              target="_blank"
+              rel="noonepener noreferrer nofollow"
+              ><svg class="hero__icon" width="22" height="22">
+                <use href="/images/icons.svg#icon-instagram"></use></svg
+            ></a>
+          </li>
+          <li class="main-hero__item">
+            <a
+              class="main-hero__link"
+              href="#"
+              target="_blank"
+              rel="noonepener noreferrer nofollow"
+              ><svg class="hero__icon" width="22" height="22">
+                <use href="/images/icons.svg#icon-facebook"></use></svg
+            ></a>
+          </li>
+          <li class="main-hero__item">
+            <a
+              class="main-hero__link"
+              href="#"
+              target="_blank"
+              rel="noonepener noreferrer nofollow"
+              ><svg class="hero__icon" width="24" height="24">
+                <use href="/images/icons.svg#icon-telegram"></use></svg
+            ></a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section-about-restaurant">
+        <div class="container">
+          <h2 hidden class="visually-hidden">About our restaurant</h2>
+          <p class="about-restaurant-pre-tittle">Amet minim mollit non</p>
+          <p class="about-restaurant-logo">MIMIHO</p>
+          <div class="about-restaurant-content">
+            <p class="about-restaurant-information">
+              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+              amet sint. Velit officia consequat duis enim velit mollit.
+              Exercitation veniam consequat sunt nostrud amet.
+            </p>
+
+            <picture class="about-restaurant-photo" width="460" height="322">
+              <img
+                src="/images/restaurant-interior-mob.jpg"
+                alt="restaurant-interior"
+                class="about-restaurant-interior" />
+            </picture>
+          </div>
+          <div class="about-restaurant-content tables">
+            <picture class="about-restaurant-photo" width="460" height="278">
+              <img
+                src="/images/restaurant-tables-mob.jpg"
+                alt="restaurant-tables"
+                class="about-restaurant-tables" />
+            </picture>
+
+            <p class="about-restaurant-information information">
+              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+              amet sint. Velit officia consequat duis enim velit mollit.
+              Exercitation veniam consequat sunt nostrud amet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-contact container">
+        <h2 class="visually-hidden">Контакти</h2>
+        <div class="left-colum">
+          <a class="logo-contact link" href="/hotel">MIMIHO</a>
+
+          <p class="contact-sub-text">Мережа ресторанів</p>
+
+          <address>
+            <ul class="list">
+              <th:block th:each="restaurant : ${restaurants}">
+                <li class="adress">
+                  <ul class="list adress-wrap">
+                    <li>
+                      <svg class="location-icon" width="24" height="24">
+                        <use href="./images/icons.svg#icon-location"></use>
+                      </svg>
+                    </li>
+                    <li>
+                      <p class="adress-text" th:text="${restaurant.name + ', ' + restaurant.address}"></p>
+                    </li>
+                  </ul>
+                </li>
+              </th:block>
+            </ul>
+          </address>
+        </div>
+        <div class="right-colum">
+          <iframe
+            class="map-tab"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d76719.24686806151!2d34.48982036653881!3d49.5993476746982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d825e425e6ba6b%3A0xcf3e6bdfb9e4ca82!2z0J_QvtC70YLQsNCy0LAsINCf0L7Qu9GC0LDQstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCAzNjAwMA!5e1!3m2!1sru!2sua!4v1670855303371!5m2!1sru!2sua"
+            width="535"
+            height="300"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+          <iframe
+            class="map-desctop"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d76719.24686806151!2d34.48982036653881!3d49.5993476746982!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d825e425e6ba6b%3A0xcf3e6bdfb9e4ca82!2z0J_QvtC70YLQsNCy0LAsINCf0L7Qu9GC0LDQstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCAzNjAwMA!5e1!3m2!1sru!2sua!4v1670855303371!5m2!1sru!2sua"
+            width="634"
+            height="412"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer-container container">
+        <a href="/" class="logo-link link"><p class="logo">MIMIHO</p></a>
+        <div class="footer-wrap">
+          <ul class="nav-footer-list list">
+            <li><a href="/" class="menu-link link">Головна</a></li>
+            <li>
+              <a href="/restaurant" class="menu-link link">Ресторан</a>
+            </li>
+
+            -->
+          </ul>
+          <ul class="soc-list list">
+            <li class="soc-item">
+              <a
+                href=""
+                target="_blank"
+                rel="noreferrer noopener nofollow"
+                class="soc-link link">
+                <p class="soc-text">Telegram</p>
+                <svg class="soc-icon" width="24" height="24">
+                  <use href="./images/icons.svg#icon-telegram"></use></svg
+              ></a>
+            </li>
+            <li class="soc-item">
+              <a
+                href=""
+                target="_blank"
+                rel="noreferrer noopener nofollow"
+                class="soc-link link">
+                <p class="soc-text">Facebook</p>
+                <svg class="soc-icon" width="24" height="24">
+                  <use href="./images/icons.svg#icon-facebook"></use></svg
+              ></a>
+            </li>
+            <li class="soc-item">
+              <a
+                href=""
+                target="_blank"
+                rel="noreferrer noopener nofollow"
+                class="soc-link link">
+                <p class="soc-text">Instagram</p>
+                <svg class="soc-icon" width="24" height="24">
+                  <use href="./images/icons.svg#icon-instagram"></use></svg
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./js/modal-book-table.js"></script>
+  </body>
+</html>

@@ -3,9 +3,7 @@
     openModalBookTableBtn: document.querySelector(
       "[data-modal-book-table-open]"
     ),
-    openModalBookTableBtn2: document.querySelector(
-          "[data-modal-book-table-open-2]"
-    ),
+
     closeModalBookTableBtn: document.querySelector(
       "[data-modal-book-table-close]"
     ),
@@ -13,7 +11,7 @@
   };
 
   refs.openModalBookTableBtn.addEventListener("click", showModalBookTable);
-  refs.openModalBookTableBtn2.addEventListener("click", showModalBookTable);
+
   refs.closeModalBookTableBtn.addEventListener("click", closeModalBookTable);
 
   function showModalBookTable() {

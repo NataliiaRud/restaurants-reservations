@@ -19,25 +19,5 @@ import java.util.Map;
 @RequestMapping("/admin/reservations")
 @Controller
 public class AdminReservationsController {
-    @Autowired
-    private RestaurantService restaurantService;
 
-    @Autowired
-    private ReservationService reservationService;
-
-    @GetMapping
-    public String restaurant(Map<String, Object> model) {
-        Iterable<Restaurant> restaurantsIterable = restaurantService.findAll();
-        Map<Integer, String> restaurantsMap = new HashMap<>();
-        for (Restaurant restaurant : restaurantsIterable) {
-            restaurantsMap.put(restaurant.getId(), restaurant.getName());
-        }
-
-        Iterable<Reservation> iterable = reservationService.findAll();
-
-        model.put("reservations", iterable);
-        model.put("restaurantsMap", restaurantsMap);
-
-        return "reservations";
-    }
 }
